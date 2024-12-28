@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Generator FF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.discordapp.com/attachments/1257890145550729276/1322611584606015548/free-fire-clown-heist-iga1et4sh2ppt0ia.png?ex=67718186&is=67703006&hm=f72c8343dc202462b00aab4e10c63283f4828e229a9ab45187c7d4ee7f1828cb&') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #27ae60;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2ecc71;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .loading img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .success {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 128, 0, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .success img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Free Diamond Generator</h1>
+            <p>Insira seus dados abaixo para gerar diamantes para sua conta.</p>
+
+            <input type="text" id="userId" placeholder="Enter your FF ID">
+            <select id="platform">
+                <option value="">Selecione sua plataforma</option>
+                <option value="android">Android</option>
+                <option value="ios">iOS</option>
+            </select>
+
+            <select id="diamondAmount">
+                <option value="">Select diamond amount</option>
+                <option value="500">500 Diamonds</option>
+                <option value="1000">1000 Diamonds</option>
+                <option value="2000">2000 Diamonds</option>
+                <option value="5000">5000 Diamonds</option>
+		<option value="10000">10000 Diamonds</option>
+		<option value="25000">25000 Diamonds</option>
+		<option value="50000">50000 Diamonds</option>
+		<option value="100000">100000 Diamonds</option>
+		<option value="150000">150000 Diamonds</option>
+		<option value="250000">250000 Diamonds</option>
+            </select>
+
+            <button onclick="generateDiamonds()">Generate Diamonds</button>
+
+            <div class="loading" id="loading">
+                <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading...">
+                <p>Processing...</p>
+            </div>
+
+            <div class="success" id="success">
+                <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success">
+                <p>Sucesso! Diamantes foram enviados para sua conta.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateDiamonds() {
+            const userId = document.getElementById('userId').value;
+            const platform = document.getElementById('platform').value;
+            const diamondAmount = document.getElementById('diamondAmount').value;
+            const loading = document.getElementById('loading');
+            const success = document.getElementById('success');
+
+            if (!userId || !platform || !diamondAmount) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            loading.style.display = 'block';
+            success.style.display = 'none';
+
+            setTimeout(() => {
+                loading.style.display = 'none';
+                success.style.display = 'block';
+            }, 3000); // Simulate server response
+        }
+    </script>
+</body>
+</html>
